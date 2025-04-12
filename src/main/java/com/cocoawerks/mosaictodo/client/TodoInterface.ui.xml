@@ -12,8 +12,6 @@
             <m:TextField ui:field="todoTitleField" />
             <m:Button text="Add Todo" ui:field="addButton"    />
         </g:HorizontalPanel>
-        <g:HTMLPanel>
-            <ul ui:field="todoList" class="{style.todoList}" />
-        </g:HTMLPanel>
+        <g:VerticalPanel ui:field="todoList" verticalAlignment="middle" />
     </g:VerticalPanel>
 </ui:UiBinder>

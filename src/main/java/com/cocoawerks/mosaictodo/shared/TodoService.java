@@ -9,5 +9,9 @@ import java.util.List;
 public interface TodoService extends RemoteService {
   Todo createTodo(Todo todo) throws ServerException;
 
+  void updateTodo(Todo todo) throws ServerException;
+
+  void removeTodo(Todo todo) throws ServerException;
+
   List<Todo> getTodos() throws ServerException;
 }

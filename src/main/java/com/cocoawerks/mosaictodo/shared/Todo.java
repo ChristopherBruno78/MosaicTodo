@@ -16,6 +16,15 @@ public class Todo implements IsSerializable {
   @Column(nullable = true)
   private String description;
 
+  @Column(nullable = false)
+  private boolean completed = false;
+
+  public Todo() {}
+
+  public Todo(String title) {
+    this.title = title;
+  }
+
   public void setId(Long id) {
     this.id = id;
   }
@@ -38,5 +47,13 @@ public class Todo implements IsSerializable {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public boolean isCompleted() {
+    return completed;
+  }
+
+  public void setCompleted(boolean completed) {
+    this.completed = completed;
   }
 }

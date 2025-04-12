@@ -2,4 +2,12 @@
 
 .todoList {
     font-size:18px;
+    padding:10px;
+}
+
+.todoItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:10px;
 }

@@ -9,4 +9,8 @@ public interface TodoServiceAsync {
   void createTodo(Todo todo, AsyncCallback<Todo> async);
 
   void getTodos(AsyncCallback<List<Todo>> async);
+
+  void removeTodo(Todo todo, AsyncCallback<Void> async);
+
+  void updateTodo(Todo todo, AsyncCallback<Void> async);
 }

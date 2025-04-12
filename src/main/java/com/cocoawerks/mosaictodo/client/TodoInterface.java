@@ -38,7 +38,7 @@ public class TodoInterface extends Composite {
   TextField todoTitleField;
 
   @UiField
-  UListElement todoList;
+  VerticalPanel todoList;
 
   @UiHandler("todoTitleField")
   void onEnterInput(EditedEvent event) {
@@ -51,32 +51,32 @@ public class TodoInterface extends Composite {
   }
 
   void createTodo() {
-    Todo todo = new Todo();
-    todo.setTitle(todoTitleField.getValue());
+    String newTitle = todoTitleField.getValue();
+    if (!newTitle.isBlank()) {
+      todoService.createTodo(
+        new Todo(newTitle),
+        new AsyncCallback<>() {
 
-    todoService.createTodo(
-      todo,
-      new AsyncCallback<Todo>() {
+          @Override
+          public void onFailure(Throwable throwable) {
+            Window.alert(throwable.getMessage());
+          }
 
-        @Override
-        public void onFailure(Throwable throwable) {
-          Window.alert(throwable.getMessage());
-        }
-
-        @Override
-        public void onSuccess(Todo todo) {
-          if (todo != null) {
-            todoTitleField.setValue("");
-            todoTitleField.setFocus(true);
-            syncTodoList();
+          @Override
+          public void onSuccess(Todo todo) {
+            if (todo != null) {
+              todoTitleField.setValue("");
+              todoTitleField.setFocus(true);
+              syncTodoList();
+            }
           }
         }
-      }
-    );
+      );
+    }
   }
 
   void syncTodoList() {
-    todoList.removeAllChildren();
+    todoList.clear();
     todoService.getTodos(
       new AsyncCallback<>() {
 
@@ -86,9 +86,8 @@ public class TodoInterface extends Composite {
         @Override
         public void onSuccess(List<Todo> todos) {
           for (Todo todo : todos) {
-            LIElement li = LIElement.as(DOM.createElement("li"));
-            li.setInnerText(todo.getTitle());
-            todoList.appendChild(li);
+            TodoItem item = new TodoItem(todo);
+            todoList.add(item);
           }
         }
       }

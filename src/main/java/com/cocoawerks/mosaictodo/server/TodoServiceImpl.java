@@ -28,6 +28,26 @@ public class TodoServiceImpl
   }
 
   @Override
+  public void updateTodo(Todo todo) throws ServerException {
+    Optional<Todo> duplicate = todoRepository.findTodoById(todo.getId());
+    if (duplicate.isPresent()) {
+      todoRepository.save(todo);
+    } else {
+      throw new ServerException("Todo Not Found");
+    }
+  }
+
+  @Override
+  public void removeTodo(Todo todo) throws ServerException {
+    Optional<Todo> duplicate = todoRepository.findTodoById(todo.getId());
+    if (duplicate.isPresent()) {
+      todoRepository.delete(duplicate.get());
+    } else {
+      throw new ServerException("Todo Not Found");
+    }
+  }
+
+  @Override
   public List<Todo> getTodos() throws ServerException {
     return todoRepository.findAll();
   }
