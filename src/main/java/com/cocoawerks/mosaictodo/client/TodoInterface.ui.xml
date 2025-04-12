@@ -1,0 +1,19 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+             xmlns:g='urn:import:com.google.gwt.user.client.ui'
+             xmlns:m="urn:import:com.cocoawerks.gwt.mosaic.client.ui"
+
+>
+
+    <ui:style src="style.css" />
+
+
+    <g:VerticalPanel spacing="10">
+        <g:HorizontalPanel spacing="10" verticalAlignment="middle">
+            <m:TextField ui:field="todoTitleField" />
+            <m:Button text="Add Todo" ui:field="addButton"    />
+        </g:HorizontalPanel>
+        <g:HTMLPanel>
+            <ul ui:field="todoList" class="{style.todoList}" />
+        </g:HTMLPanel>
+    </g:VerticalPanel>
+</ui:UiBinder>

@@ -1,0 +1,14 @@
+<module rename-to="gwt">
+
+    <inherits name="com.google.gwt.user.User"/>
+    <inherits name="elemental2.dom.Dom"/>
+    <inherits name="com.cocoawerks.gwt.mosaic.Mosaic"/>
+    <inherits name="com.cocoawerks.mosaic.MosaicServer" />
+
+    <source path="client"/>
+    <source path="shared"/>
+
+    <entry-point class="com.cocoawerks.mosaictodo.client.Entry"/>
+
+
+</module>
