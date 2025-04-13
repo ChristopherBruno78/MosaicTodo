@@ -1,7 +1,5 @@
 package com.cocoawerks.mosaictodo.client;
 
-import static elemental2.dom.DomGlobal.console;
-
 import com.cocoawerks.gwt.mosaic.client.ui.CheckBox;
 import com.cocoawerks.mosaictodo.shared.Todo;
 import com.cocoawerks.mosaictodo.shared.TodoService;
@@ -14,6 +12,8 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+
+import static elemental2.dom.DomGlobal.console;
 
 public class TodoItem extends Composite {
 
