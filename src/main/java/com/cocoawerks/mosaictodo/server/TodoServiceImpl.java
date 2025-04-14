@@ -18,7 +18,7 @@ public class TodoServiceImpl
 
   @Override
   public Todo createTodo(Todo todo) throws ServerException {
-    Optional<Todo> duplicate = todoRepository.findTodoByTitle(todo.getTitle());
+    Optional<Todo> duplicate = todoRepository.findByTitle(todo.getTitle());
     if (duplicate.isPresent()) {
       throw new ServerException("Duplicate Todo");
     }
@@ -28,7 +28,7 @@ public class TodoServiceImpl
 
   @Override
   public void updateTodo(Todo todo) throws ServerException {
-    Optional<Todo> duplicate = todoRepository.findTodoById(todo.getId());
+    Optional<Todo> duplicate = todoRepository.findById(todo.getId());
     if (duplicate.isPresent()) {
       todoRepository.save(todo);
     } else {
@@ -38,7 +38,7 @@ public class TodoServiceImpl
 
   @Override
   public void removeTodo(Todo todo) throws ServerException {
-    Optional<Todo> duplicate = todoRepository.findTodoById(todo.getId());
+    Optional<Todo> duplicate = todoRepository.findById(todo.getId());
     if (duplicate.isPresent()) {
       todoRepository.delete(duplicate.get());
     } else {

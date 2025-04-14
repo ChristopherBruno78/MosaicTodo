@@ -7,7 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {
-  Optional<Todo> findTodoById(Long id);
-
-  Optional<Todo> findTodoByTitle(String title);
+  Optional<Todo> findByTitle(String title);
 }
