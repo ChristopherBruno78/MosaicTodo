@@ -10,7 +10,7 @@
     <g:VerticalPanel spacing="10">
         <g:HorizontalPanel spacing="10" verticalAlignment="middle">
             <m:TextField ui:field="todoTitleField" />
-            <m:Button text="Add Todo" ui:field="addButton"    />
+            <m:Button text="Add Todo" ui:field="addButton" />
         </g:HorizontalPanel>
         <g:VerticalPanel ui:field="todoList" verticalAlignment="middle" />
     </g:VerticalPanel>
