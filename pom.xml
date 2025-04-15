@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
+        <spring.version>3.4.4</spring.version>
         <gwt.version>2.12.2</gwt.version>
         <gwt.module>com.cocoawerks.mosaictodo.MosaicTodo</gwt.module>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -114,7 +115,7 @@
                         -XX:TieredStopAtLevel=1
                     </jvmArguments>
                 </configuration>
-                <version>3.4.4</version>
+                <version>${spring.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
