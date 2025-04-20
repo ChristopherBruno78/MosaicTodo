@@ -1,12 +1,15 @@
 package com.cocoawerks.mosaictodo.client;
 
+import com.cocoawerks.simplerouter.client.Router;
 import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.RootPanel;
 
 public class Entry implements EntryPoint {
+  final Router router = Router.get();
 
   @Override
   public void onModuleLoad() {
-    RootPanel.get().add(new TodoInterface());
+    router.install();
+    router.setNotFoundView(new NotFoundView());
+    router.mapRoute("/todo", new TodoInterface());
   }
 }

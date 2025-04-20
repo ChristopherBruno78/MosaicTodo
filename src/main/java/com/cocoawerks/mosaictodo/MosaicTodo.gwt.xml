@@ -5,6 +5,8 @@
     <inherits name="com.cocoawerks.gwt.mosaic.Mosaic"/>
     <inherits name="com.cocoawerks.mosaic.MosaicServer" />
 
+    <inherits name="com.cocoawerks.simplerouter.SimpleRouter"/>
+
     <source path="client"/>
     <source path="shared"/>
 
