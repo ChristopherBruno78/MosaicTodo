@@ -2,10 +2,8 @@
 
     <inherits name="com.google.gwt.user.User"/>
     <inherits name="elemental2.dom.Dom"/>
-    <inherits name="com.cocoawerks.gwt.mosaic.Mosaic"/>
-    <inherits name="com.cocoawerks.mosaic.MosaicServer" />
-
-    <inherits name="com.cocoawerks.simplerouter.SimpleRouter"/>
+    <inherits name="com.cocoawerks.mosaic.Mosaic"/>
+    <inherits name="com.cocoawerks.mosaic.widgets.MosaicWidgets" />
 
     <source path="client"/>
     <source path="shared"/>

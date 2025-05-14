@@ -1,12 +1,17 @@
 package com.cocoawerks.mosaictodo.client;
 
-import com.cocoawerks.gwt.mosaic.client.events.edited.EditedEvent;
-import com.cocoawerks.gwt.mosaic.client.ui.TextField;
+import static elemental2.dom.DomGlobal.console;
+
+import com.cocoawerks.mosaic.client.router.ViewController;
+import com.cocoawerks.mosaic.widgets.client.events.edited.EditedEvent;
+import com.cocoawerks.mosaic.widgets.client.ui.TextField;
 import com.cocoawerks.mosaictodo.shared.Todo;
 import com.cocoawerks.mosaictodo.shared.TodoService;
 import com.cocoawerks.mosaictodo.shared.TodoServiceAsync;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.file.client.FileReader;
+import com.google.gwt.file.client.FileReaderMode;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -14,9 +19,10 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 import java.util.List;
 
-public class TodoInterface extends Composite {
+public class TodoInterface extends Composite implements ViewController {
 
   interface TodoInterfaceUiBinder
     extends UiBinder<VerticalPanel, TodoInterface> {}
@@ -30,6 +36,11 @@ public class TodoInterface extends Composite {
   public TodoInterface() {
     initWidget(ourUiBinder.createAndBindUi(this));
     syncTodoList();
+  }
+
+  @Override
+  public Widget getView() {
+    return this;
   }
 
   @UiField

@@ -2,7 +2,7 @@ package com.cocoawerks.mosaictodo.client;
 
 import static elemental2.dom.DomGlobal.console;
 
-import com.cocoawerks.gwt.mosaic.client.ui.CheckBox;
+import com.cocoawerks.mosaic.widgets.client.ui.CheckBox;
 import com.cocoawerks.mosaictodo.shared.Todo;
 import com.cocoawerks.mosaictodo.shared.TodoService;
 import com.cocoawerks.mosaictodo.shared.TodoServiceAsync;
@@ -39,12 +39,16 @@ public class TodoItem extends Composite {
     this.label.setText(item.getTitle());
   }
 
+  public String getTitle() {
+    return this.label.getText();
+  }
+
   @UiHandler("label")
   void onLabelClick(ClickEvent event) {
     this.todo.setCompleted(this.label.getValue());
     todoService.updateTodo(
       this.todo,
-      new AsyncCallback<>() {
+      new AsyncCallback<Void>() {
 
         @Override
         public void onFailure(Throwable throwable) {}

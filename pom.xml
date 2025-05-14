@@ -10,7 +10,7 @@
 
     <properties>
         <spring.version>3.4.4</spring.version>
-        <gwt.version>2.12.2</gwt.version>
+        <gwt.version>2.12.3</gwt.version>
         <gwt.module>com.cocoawerks.mosaictodo.MosaicTodo</gwt.module>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
@@ -54,21 +54,29 @@
 
         <!-- Mosaic client side -->
         <dependency>
-            <groupId>com.cocoawerks</groupId>
-            <artifactId>MosaicGWT</artifactId>
+            <groupId>com.cocoawerks.mosaic</groupId>
+            <artifactId>mosaic-widgets</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.cocoawerks</groupId>
-            <artifactId>MosaicServer</artifactId>
+            <groupId>com.cocoawerks.mosaic</groupId>
+            <artifactId>Mosaic</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>com.cocoawerks</groupId>
-            <artifactId>SimpleRouter</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.gwtproject</groupId>
+            <artifactId>gwt-dev</artifactId>
+            <version>${gwt.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
@@ -127,7 +135,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <proc>full</proc>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
                 </configuration>
